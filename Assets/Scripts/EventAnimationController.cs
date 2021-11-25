@@ -1,13 +1,6 @@
 ﻿
-using System;
 using UnityEngine;
 using DG.Tweening;
-
-public enum SurfaceType
-{
-    Opaque,
-    Transparent
-}
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioSource))]
 public class EventAnimationController : MonoBehaviour
@@ -27,6 +20,16 @@ public class EventAnimationController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
+    }
+    private void OnApplicationQuit()
+    {
+        foreach (var I in _skinnedMesh)
+        {
+            Material _material = I.sharedMaterial;
+            _material.SetColor("_BaseColor", new Color(1, 1, 1, 1));
+            _material.SetFloat("_Surface", 0);
+            I.sharedMaterial = _material;
+        }
     }
     
     #endregion
@@ -59,5 +62,4 @@ public class EventAnimationController : MonoBehaviour
     }
     
     #endregion
-    
 }
