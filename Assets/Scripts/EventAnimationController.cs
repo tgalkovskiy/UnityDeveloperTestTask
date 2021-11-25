@@ -1,8 +1,12 @@
-﻿
+﻿#region usings
 using UnityEngine;
 using DG.Tweening;
+#endregion
+
+#region atribusts
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioSource))]
+#endregion
 public class EventAnimationController : MonoBehaviour
 {
     #region Fields
