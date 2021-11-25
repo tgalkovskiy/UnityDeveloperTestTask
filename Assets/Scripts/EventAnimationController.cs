@@ -2,7 +2,6 @@
 using UnityEngine;
 using DG.Tweening;
 #endregion
-
 #region atribusts
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioSource))]
